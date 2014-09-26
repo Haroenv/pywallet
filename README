@@ -1,6 +1,6 @@
 Requirements: Python 2.x, with bsddb and twisted packages
 
-Usage: pywallet.py [options]
+Usage: NPW_0.0.1a5.py [options]
 
 Options:
   --version             show program's version number and exit
